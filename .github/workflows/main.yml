@@ -1,14 +1,24 @@
-name: work-1          # 워크플로우 이름
+name: work-1
 on:
   push:
     branches:
-      - main          # main 브랜치에 push하면 실행
+      - main
 jobs:
-  hello1:             # 잡 이름
-    runs-on: ubuntu-latest   # 깃허브 서버(우분투)에서 실행
+  hello1:
+    runs-on: ubuntu-latest
     steps:
       - name: sayHi
-        run: echo "Hi"              # "Hi" 출력
-
+        run: echo "Hi"
+      - name: Wait for 10 seconds
+        run: sleep 10  # 10초 대기
       - name: sayMyName
-        run: echo "${{ github.actor }}"  # push한 사람 계정명 출력
+        run: echo "${{ github.actor }}"
+  hello2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sayHi
+        run: echo "Hi"
+      - name: Wait for 20 seconds
+        run: sleep 20  # 20초 대기
+      - name: sayMyName
+        run: echo "${{ github.actor }}"
