@@ -1,0 +1,14 @@
+name: work-1          # 워크플로우 이름
+on:
+  push:
+    branches:
+      - main          # main 브랜치에 push하면 실행
+jobs:
+  hello1:             # 잡 이름
+    runs-on: ubuntu-latest   # 깃허브 서버(우분투)에서 실행
+    steps:
+      - name: sayHi
+        run: echo "Hi"              # "Hi" 출력
+
+      - name: sayMyName
+        run: echo "${{ github.actor }}"  # push한 사람 계정명 출력
